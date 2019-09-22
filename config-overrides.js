@@ -1,16 +1,27 @@
-const {override, fixBabelImports, addLessLoader, addWebpackAlias} = require('customize-cra');
+const {override, fixBabelImports, addLessLoader, addWebpackAlias, overrideDevServer} = require('customize-cra');
 const path = require('path');
 
-module.exports = override(
-    fixBabelImports('import', {
-        libraryName: 'antd',
-        libraryDirectory: 'es',
-        style: true
-    }),
-    addLessLoader({
-        javascriptEnabled: true
-    }),
-    addWebpackAlias({
-        '@': path.resolve(__dirname, 'src')
-    })
-);
+const mockServer = require('./mock/server')
+
+const addMockServer = () => config => {
+    config.after = (app)=> {mockServer(app)};
+    return config;
+};
+
+module.exports = {
+    webpack: override(
+        fixBabelImports('import', {
+            libraryName: 'antd',
+            libraryDirectory: 'es',
+            style: true
+        }),
+        addLessLoader({
+            javascriptEnabled: true
+        }),
+        addWebpackAlias({
+            '@': path.resolve(__dirname, 'src'),
+            'fetch': path.resolve(__dirname, 'src/util/fetch')
+        })
+    ),
+    devServer: overrideDevServer(addMockServer())
+}
