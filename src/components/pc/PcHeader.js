@@ -114,6 +114,7 @@ class PcHeader extends Component {
                     onCancel={() => this.setModalVisible(false)}
                     onOk={() => this.setModalVisible(false)}
                     okText='关闭'
+                    cancelText='取消'
                 >
                     <Tabs type='card'>
                         <TabPane tab='注册' key='2'>
