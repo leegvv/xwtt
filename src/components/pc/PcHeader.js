@@ -58,7 +58,7 @@ class PcHeader extends Component {
                 &nbsp;&nbsp;
                 <Button type='ghost'>退出</Button>
             </Menu.Item>
-            : <Menu.Item key='register' className='register'>
+            : <Menu.Item key='register' className={styles.register}>
                 <Icon type='appstore'/>注册/登录
             </Menu.Item>;
 
