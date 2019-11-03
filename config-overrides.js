@@ -5,8 +5,17 @@ const mockServer = require('./mock/server')
 
 const addMockServer = () => config => {
     config.after = (app)=> {mockServer(app)};
+    config.proxy = {
+        '/toutiao': {
+            target: 'http://v.juhe.cn',
+            changeOrigin: true,
+        }
+
+    }
     return config;
 };
+
+
 
 module.exports = {
     webpack: override(

@@ -23,7 +23,9 @@
 }
 
 .container {
+    text-align: center !important;
     padding-top: 10px;
+    margin-top: 5px;
 
     .leftContainer {
         width: 400px;
@@ -32,7 +34,65 @@
         .carousel {
             width: 400px;
             float: left;
+
+            img {
+                width: 400px;
+                height: 260px;
+            }
         }
+
+
+    }
+
+    .newsImageBlock{
+        float: left;
+        text-align: left;
+        font-size: 14px;
+        margin-bottom: 10px;
+        width: 100%;
+
+        ul {
+            padding-inline-start: 0px;
+
+            .imageBlock {
+                float: left;
+
+                .customCard {
+                    padding: 5px;
+
+                    p {
+                        color: #999;
+                    }
+                }
+            }
+
+
+        }
+    }
+
+    .centerContainer {
+        width: 460px;
+        left: 20px;
+        .topNewsList {
+            float: left;
+            text-align: left;
+            font-size: 14px;
+            margin-bottom: 10px;
+            width: 100%;
+
+            ul {
+                padding-inline-start: 0;
+                li {
+                    list-style: none;
+
+                    a{
+                        line-height: 22px !important;
+                        color: #666 !important;
+                    }
+                }
+            }
+        }
+
     }
 }
 
@@ -43,5 +103,23 @@
                 display: inline-block !important;
             }
         }
+    }
+
+    .ant-card{
+        margin-top: 5px !important;
+    }
+
+    .ant-card-head-title{
+        text-align: left !important;
+    }
+
+    .ant-card-body{
+        text-align: left !important;
+        width: 100%;
+        padding: 15px !important;
+    }
+
+    .usercenter {
+        float: right !important;
     }
 }

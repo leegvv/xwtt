@@ -1,5 +1,5 @@
 
-const get = async (url = '', params = {}, options) => {
+const get = async (url = '', params = {}, options = {}) => {
     let dataStr = ''; //数据拼接字符串
     Object.keys(params).forEach(key => {
         dataStr += key + '=' + params[key] + '&';
@@ -11,6 +11,7 @@ const get = async (url = '', params = {}, options) => {
     }
 
     const requestConfig = {
+        ...options,
         method: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -26,8 +27,9 @@ const get = async (url = '', params = {}, options) => {
     }
 }
 
-const post = async (url = '', params = {}, options) => {
+const post = async (url = '', params = {}, options = {}) => {
     const requestConfig = {
+        ...options,
         method: 'POST',
         headers: {
             'Accept': 'application/json',
