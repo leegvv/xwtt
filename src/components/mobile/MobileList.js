@@ -30,19 +30,19 @@ class MobileList extends Component {
         for (let i = 0; i < news.length && i < this.props.count; i++) {
             const newsItem = news[i];
             newsList.push(
-                <section key={i}>
+                <section key={i} className={styles.article}>
                     <Link to={`details/${newsItem.uniquekey}`}>
-                        <div>
+                        <div className={styles.articleImg}>
                             <img src={newsItem.thumbnail_pic_s} alt={newsItem.title}/>
                         </div>
-                        <div>
-                            <div>
+                        <div className={styles.m_article_info}>
+                            <div className={styles.m_article_title}>
                                 <span>{newsItem.title}</span>
                             </div>
-                            <div>
-                                <div>
-                                    <span>{newsItem.category}</span>
-                                    <span>{newsItem.date}</span>
+                            <div className={styles.m_article_desc}>
+                                <div className={styles.m_article_desc}>
+                                    <span className={styles.m_article_channel}>{newsItem.category}</span>
+                                    <span className={styles.m_article_time}>{newsItem.date}</span>
                                 </div>
                             </div>
                         </div>
